@@ -3,7 +3,20 @@
 int main(void)
 {
     int n;
-    scanf("%d", &n);
-    /* TODO: n が負なら NG、そうでなければ 1+2+...+n を for 文で計算して表示 */
+    if (scanf("%d", &n) != 1) {
+        return 0;
+    }
+
+    if (n < 0) {
+        puts("NG");
+        return 0;
+    }
+
+    long long sum = 0;
+    for (long long i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    printf("%lld\n", sum);
     return 0;
 }
